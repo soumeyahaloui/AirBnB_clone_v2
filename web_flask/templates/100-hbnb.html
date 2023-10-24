@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HBNB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/3-header.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/3-footer.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/4-common.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/6-filters.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/8-places.css') }}" type="text/css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            {% include '100-header.html' %}
+        </header>
+        <div class="clearfix" id="main-content">
+            <div class="clearfix" id="places">
+                <article>
+                    <section class="title">
+                        <h2>Places</h2>
+                        <div class="search">
+                            <input type="text" name="search" id="search" placeholder="Search...">
+                            <button>Search</button>
+                        </div>
+                    </section>
+                    <div class="places">
+                        {% for place in places %}
+                        <div class="place">
+                            <div class="price_by_night">{{ place.price_by_night }}</div>
+                            <div class="name">{{ place.name }}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </article>
+            </div>
+        </div>
+        <footer>
+            {% include '100-footer.html' %}
+        </footer>
+    </div>
+</body>
+
+</html>
